@@ -503,22 +503,23 @@ function AuthSection({ mode, setActive }: { mode: "register" | "login"; setActiv
       <div className="w-full max-w-2xl">
         {mode === "register" && (
           <div className="flex flex-col items-center mb-6">
-            <div className="relative flex items-flex-end justify-center w-full">
-              <img src={DINO_SIGN} alt="Дино с табличкой" className="w-64 md:w-80 animate-float object-contain drop-shadow-2xl flex-shrink-0" />
-              <div
-                className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[220px] md:w-[260px] rounded-2xl px-4 py-3 text-center"
-                style={{
-                  background: "rgba(255, 122, 26, 0.92)",
-                  border: "3px solid #fff",
-                  boxShadow: "0 4px 24px rgba(255,122,26,0.35)",
-                }}
-              >
-                <p className="font-baloo font-extrabold text-white text-sm md:text-base leading-tight">
-                  При регистрации Вам предоставляется
-                </p>
-                <p className="font-baloo font-extrabold text-white text-lg md:text-xl leading-tight mt-1">
-                  бесплатный доступ к платным материалам на <span className="text-2xl" style={{ color: "#FFE566" }}>3 дня</span>
-                </p>
+            <div className="relative w-full flex justify-center">
+              <div className="relative inline-block">
+                <img
+                  src="https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/bucket/4e0666af-8a46-4b4a-bd5c-bbd0d24accf1.jpg"
+                  alt="Дино учитель"
+                  className="w-72 md:w-96 animate-float object-contain drop-shadow-xl rounded-3xl"
+                />
+                <div
+                  className="absolute top-[6%] left-[5%] w-[57%] h-[72%] flex items-center justify-center px-3 py-2"
+                  style={{ pointerEvents: "none" }}
+                >
+                  <p className="font-baloo font-extrabold text-white text-center leading-snug drop-shadow-md"
+                    style={{ fontSize: "clamp(10px, 2.2vw, 17px)", textShadow: "0 1px 4px rgba(0,0,0,0.45)" }}>
+                    При регистрации Вам предоставляется доступ к платным материалам на{" "}
+                    <span style={{ color: "#FFE566", fontSize: "1.3em" }}>3 дня</span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
