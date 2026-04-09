@@ -9,7 +9,7 @@ const PHOTO_ONLINE = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-5
 const DINO_TEACHER = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/eccc1ef0-044a-47c4-8abc-c33c1603fae7.jpg";
 const PHOTO_METHODS = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/8ff23eed-b21f-4900-ae31-a55f14aabe7d.jpg";
 
-type Section = "home" | "about" | "games" | "blog" | "subscribe" | "contact" | "register" | "login";
+type Section = "home" | "about" | "games" | "blog" | "reviews" | "subscribe" | "contact" | "register" | "login";
 
 const games = [
   { name: "Буквоград", desc: "Учим буквы через весёлые приключения", emoji: "🏙️", color: "#FF7A1A" },
@@ -74,6 +74,7 @@ function Navbar({ active, setActive }: { active: Section; setActive: (s: Section
     { key: "about", label: "Обо мне" },
     { key: "games", label: "Игры" },
     { key: "blog", label: "Блог" },
+    { key: "reviews", label: "Отзывы" },
     { key: "subscribe", label: "Подписка" },
     { key: "contact", label: "Контакты" },
   ];
@@ -582,6 +583,92 @@ function AuthSection({ mode, setActive }: { mode: "register" | "login"; setActiv
   );
 }
 
+const reviews = [
+  { name: "Анна Петрова", role: "Логопед, стаж 8 лет", text: "ЛОГОША полностью изменила мой подход к онлайн-занятиям! Дети в восторге от интерактивных игр, а я вижу реальный прогресс уже после первых сессий.", rating: 5, avatar: "👩‍⚕️", city: "Москва" },
+  { name: "Мария Иванова", role: "Мама Артёма, 5 лет", text: "Мой сын наконец-то полюбил логопедические занятия! Благодаря ЛОГОШЕ он занимается с удовольствием, а звукопроизношение улучшилось за 2 месяца.", rating: 5, avatar: "👩", city: "Санкт-Петербург" },
+  { name: "Елена Смирнова", role: "Логопед, стаж 12 лет", text: "Наконец-то платформа, которая понимает нужды логопеда. Все материалы структурированы, есть всё необходимое для работы онлайн. Рекомендую коллегам!", rating: 5, avatar: "👩‍🏫", city: "Екатеринбург" },
+  { name: "Дмитрий Козлов", role: "Папа Сони, 6 лет", text: "Дочка занимается с логопедом через ЛОГОШУ уже 3 месяца. Прогресс виден невооружённым глазом — говорит намного чище и увереннее.", rating: 5, avatar: "👨", city: "Казань" },
+  { name: "Ольга Новикова", role: "Логопед, стаж 5 лет", text: "Удобный кабинет, отличная база игровых упражнений и поддержка — всё, что нужно для эффективной онлайн-работы. Мои клиенты очень довольны!", rating: 5, avatar: "👩‍💻", city: "Новосибирск" },
+  { name: "Светлана Морозова", role: "Мама Мишы, 4 года", text: "Думала, что онлайн-занятия не подойдут маленькому ребёнку. Оказалось — отлично! Сын ждёт каждого урока, как праздника. Спасибо ЛОГОШЕ!", rating: 5, avatar: "🧕", city: "Краснодар" },
+];
+
+function ReviewsSection({ setActive }: { setActive: (s: Section) => void }) {
+  const [current, setCurrent] = useState(0);
+  const perPage = 3;
+  const total = Math.ceil(reviews.length / perPage);
+  const visible = reviews.slice(current * perPage, current * perPage + perPage);
+
+  return (
+    <section className="py-24 px-4" style={{ background: "linear-gradient(135deg, #FFF8EC 0%, #FFF3E0 100%)" }}>
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-14">
+          <span className="inline-block px-5 py-2 rounded-full font-nunito font-bold text-sm mb-4 text-white" style={{ background: "#FF7A1A" }}>
+            ⭐ Отзывы
+          </span>
+          <h2 className="font-baloo font-extrabold text-3xl md:text-5xl text-foreground mb-4">
+            Нам доверяют логопеды и родители
+          </h2>
+          <p className="font-nunito text-lg text-muted-foreground max-w-xl mx-auto">
+            Более 500 специалистов и семей уже занимаются с ЛОГОШЕЙ
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 mb-10">
+          {visible.map((r, i) => (
+            <div key={i} className="bg-white rounded-3xl p-6 shadow-lg border-2 flex flex-col gap-4" style={{ borderColor: "#FF7A1A22" }}>
+              <div className="flex gap-1">
+                {Array.from({ length: r.rating }).map((_, s) => (
+                  <span key={s} className="text-xl">⭐</span>
+                ))}
+              </div>
+              <p className="font-nunito text-base text-foreground leading-relaxed flex-1">
+                «{r.text}»
+              </p>
+              <div className="flex items-center gap-3 pt-2 border-t" style={{ borderColor: "#f0f0f0" }}>
+                <div className="w-11 h-11 rounded-full flex items-center justify-center text-2xl flex-shrink-0" style={{ background: "#FFF3E0" }}>
+                  {r.avatar}
+                </div>
+                <div>
+                  <p className="font-baloo font-bold text-base text-foreground leading-tight">{r.name}</p>
+                  <p className="font-nunito text-xs text-muted-foreground">{r.role} · {r.city}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-center gap-2 mb-12">
+          {Array.from({ length: total }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className="w-3 h-3 rounded-full transition-all"
+              style={{ background: i === current ? "#FF7A1A" : "#FFD4AA" }}
+            />
+          ))}
+        </div>
+
+        <div className="rounded-3xl p-8 md:p-12 text-center text-white" style={{ background: "linear-gradient(135deg, #FF7A1A 0%, #FF6B9D 100%)" }}>
+          <div className="text-4xl mb-4">🦕</div>
+          <h3 className="font-baloo font-extrabold text-2xl md:text-3xl mb-3">
+            Присоединяйтесь к сообществу ЛОГОШИ!
+          </h3>
+          <p className="font-nunito text-base opacity-90 mb-6 max-w-md mx-auto">
+            Первые 3 дня — бесплатный доступ ко всем платным материалам
+          </p>
+          <button
+            onClick={() => setActive("register")}
+            className="bg-white font-baloo font-extrabold text-lg px-8 py-4 rounded-2xl shadow-lg hover:scale-105 transition-transform"
+            style={{ color: "#FF7A1A" }}
+          >
+            🚀 Попробовать бесплатно
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer({ setActive }: { setActive: (s: Section) => void }) {
   const cols: { title: string; links: { key: Section; label: string }[] }[] = [
     { title: "Навигация", links: [{ key: "home", label: "Главная" }, { key: "about", label: "Обо мне" }, { key: "games", label: "Игры" }, { key: "blog", label: "Блог" }] },
@@ -652,7 +739,8 @@ export default function Index() {
         {active === "about" && <><div className="pt-16"><AboutSection /></div><Footer setActive={nav} /></>}
         {active === "games" && <><div className="pt-16"><GamesSection setActive={nav} /></div><Footer setActive={nav} /></>}
         {active === "blog" && <><div className="pt-16"><BlogSection /></div><Footer setActive={nav} /></>}
-        {active === "subscribe" && <><div className="pt-16"><SubscribeSection setActive={nav} /></div><Footer setActive={nav} /></>}
+        {active === "reviews" && <><div className="pt-16"><ReviewsSection setActive={nav} /></div><Footer setActive={nav} /></>}
+        {active === "subscribe" &&  <><div className="pt-16"><SubscribeSection setActive={nav} /></div><Footer setActive={nav} /></>}
         {active === "contact" && <><div className="pt-16"><ContactSection /></div><Footer setActive={nav} /></>}
         {active === "register" && <><div className="pt-16"><AuthSection mode="register" setActive={nav} /></div><Footer setActive={nav} /></>}
         {active === "login" && <><div className="pt-16"><AuthSection mode="login" setActive={nav} /></div><Footer setActive={nav} /></>}
