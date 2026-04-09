@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
 const DINO_READING = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/c8ab2d33-4034-45c2-9e23-d1d311690e70.jpg";
+const DINO_SIGN = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/2d304416-6e39-4112-a93c-037e7df45c2a.jpg";
 const DINO_RUNNING = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/e4426449-933a-447c-bd66-7b0ea3941588.jpg";
 const DINO_STUDY = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/eccc1ef0-044a-47c4-8abc-c33c1603fae7.jpg";
 const PHOTO_ONLINE = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/2e961a2c-b738-4c8e-918b-2fa3e2243086.jpg";
@@ -498,14 +499,29 @@ function AuthSection({ mode, setActive }: { mode: "register" | "login"; setActiv
   const [role, setRole] = useState<"logoped" | "parent">("logoped");
   return (
     <section className="min-h-screen flex items-center justify-center py-24 px-4" style={{ background: "linear-gradient(135deg, #FFF8EC 0%, #FFE8C0 100%)" }}>
-      <div className="w-full max-w-lg">
+      <div className="w-full max-w-2xl">
+        {mode === "register" && (
+          <div className="flex flex-col items-center mb-8">
+            <div className="relative flex flex-col items-center">
+              <img src={DINO_SIGN} alt="Дино с табличкой" className="w-56 md:w-72 animate-float object-contain drop-shadow-2xl" />
+              <div className="mt-[-16px] bg-white border-4 rounded-3xl px-6 py-4 shadow-xl text-center max-w-sm" style={{ borderColor: "#FF7A1A" }}>
+                <p className="font-baloo font-extrabold text-lg md:text-xl" style={{ color: "#FF7A1A" }}>
+                  При регистрации Вам предоставляется
+                </p>
+                <p className="font-nunito font-bold text-base md:text-lg text-foreground mt-1">
+                  бесплатный доступ к платным материалам на <span className="text-2xl font-extrabold" style={{ color: "#FF7A1A" }}>3 дня</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
         <div className="text-center mb-8">
-          <img src={DINO_READING} alt="Логоша" className="w-28 mx-auto animate-float rounded-3xl shadow-xl mb-4 object-cover" />
+          {mode === "login" && <img src={DINO_READING} alt="Логоша" className="w-28 mx-auto animate-float rounded-3xl shadow-xl mb-4 object-cover" />}
           <h2 className="font-baloo font-extrabold text-3xl md:text-4xl text-foreground">
             {mode === "register" ? "Присоединяйся к ЛОГОШЕ! 🎉" : "Добро пожаловать! 🦕"}
           </h2>
           <p className="font-nunito text-muted-foreground mt-2">
-            {mode === "register" ? "7 дней бесплатно — без карты!" : "Войди и начни занятие"}
+            {mode === "register" ? "" : "Войди и начни занятие"}
           </p>
         </div>
 
