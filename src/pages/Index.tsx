@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
-const DINO_READING = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/051344a4-96b4-4014-b6b9-f659e200bffe.jpg";
-const DINO_RUNNING = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/07b77af2-6e48-429a-8f5a-9000665e9f0b.jpg";
+const DINO_READING = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/c8ab2d33-4034-45c2-9e23-d1d311690e70.jpg";
+const DINO_RUNNING = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/e4426449-933a-447c-bd66-7b0ea3941588.jpg";
+const DINO_STUDY = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/eccc1ef0-044a-47c4-8abc-c33c1603fae7.jpg";
 const PHOTO_ONLINE = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/2e961a2c-b738-4c8e-918b-2fa3e2243086.jpg";
-const DINO_TEACHER = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/699bc2ba-04fb-4acc-a538-b9dd9e44fdf5.jpg";
+const DINO_TEACHER = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/eccc1ef0-044a-47c4-8abc-c33c1603fae7.jpg";
 const PHOTO_METHODS = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/8ff23eed-b21f-4900-ae31-a55f14aabe7d.jpg";
 
 type Section = "home" | "about" | "games" | "blog" | "subscribe" | "contact" | "register" | "login";
@@ -216,7 +217,7 @@ function AboutSection() {
           <div className="section-reveal order-2 lg:order-1">
             <div className="bg-white rounded-3xl p-8 shadow-xl border-2" style={{ borderColor: "#FF7A1A33" }}>
               <div className="flex items-center gap-4 mb-6">
-                <img src={DINO_RUNNING} alt="Логоша" className="w-20 h-20 rounded-2xl object-cover shadow-md" />
+                <img src={DINO_STUDY} alt="Логоша" className="w-20 h-20 rounded-2xl object-cover shadow-md" />
                 <div>
                   <h3 className="font-baloo font-bold text-2xl text-foreground">Логопед-дефектолог</h3>
                   <p className="font-nunito text-muted-foreground">Основатель ЛОГОШИ</p>
