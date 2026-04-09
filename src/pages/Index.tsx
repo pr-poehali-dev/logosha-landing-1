@@ -3,9 +3,9 @@ import Icon from "@/components/ui/icon";
 
 const DINO_READING = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/051344a4-96b4-4014-b6b9-f659e200bffe.jpg";
 const DINO_RUNNING = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/07b77af2-6e48-429a-8f5a-9000665e9f0b.jpg";
-const PHOTO_ONLINE = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/ba2c9108-2607-42bd-bdf4-db162dc10f3a.jpg";
-const DINO_TEACHER = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/c0c3e1ff-262a-46c3-8df0-ca36cf994955.jpg";
-const PHOTO_METHODS = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/ee3d97f9-6825-4906-bc2d-d2d583021eb9.jpg";
+const PHOTO_ONLINE = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/2e961a2c-b738-4c8e-918b-2fa3e2243086.jpg";
+const DINO_TEACHER = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/699bc2ba-04fb-4acc-a538-b9dd9e44fdf5.jpg";
+const PHOTO_METHODS = "https://cdn.poehali.dev/projects/a5b0bc7e-180f-4cc0-a4da-547b0e07b8a2/files/8ff23eed-b21f-4900-ae31-a55f14aabe7d.jpg";
 
 type Section = "home" | "about" | "games" | "blog" | "subscribe" | "contact" | "register" | "login";
 
